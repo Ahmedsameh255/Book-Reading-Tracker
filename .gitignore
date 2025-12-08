@@ -1,15 +1,16 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+﻿# Android
+AndroidApp/.gradle/
+AndroidApp/.idea/
+AndroidApp/build/
+AndroidApp/.kotlin/
+AndroidApp/local.properties
+
+# Flutter
+FlutterApp/.dart_tool/
+FlutterApp/.flutter-plugins
+FlutterApp/build/
+FlutterApp/ios/Flutter/.symlinks/
+
+# General
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+*.iml
