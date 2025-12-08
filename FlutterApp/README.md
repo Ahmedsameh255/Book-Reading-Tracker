@@ -1,16 +1,21 @@
-# book_stats_flutter
+# Flutter Book Tracker App
 
-A new Flutter project.
+This is the Flutter companion app for the Book Reading Tracker project.
 
-## Getting Started
+**Project Name:** book_stats_flutter
+**Original Name:** Book Stats Flutter
 
-This project is a starting point for a Flutter application.
+## Setup
+1. Install Flutter: https://flutter.dev/docs/get-started/install
+2. Navigate to this folder: `cd FlutterApp`
+3. Run `flutter pub get` to install dependencies
+4. Run `flutter run` to start the app
 
-A few resources to get you started if this is your first Flutter project:
+## Integration with Android App
+The Flutter app can launch the native Android app via intents.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Project Structure
+- `lib/` - Dart source code
+- `android/` - Android-specific files
+- `ios/` - iOS-specific files (if needed)
+- `pubspec.yaml` - Dependencies and metadata
