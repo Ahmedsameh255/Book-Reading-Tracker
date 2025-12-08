@@ -20,6 +20,10 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import com.example.booktrackerapp.ui.theme.BookTrackerAppTheme
+import android.widget.Toast
+import androidx.compose.ui.graphics.Color
+import android.content.ComponentName
+import android.content.ActivityNotFoundException
 
 class MainActivity : ComponentActivity() {
     private val refreshLauncher = registerForActivityResult(
@@ -134,6 +138,45 @@ fun MainBookScreen(
                 Spacer(modifier = Modifier.width(8.dp))
                 Text("Add New Book")
             }
+        }
+        Button(
+            onClick = {
+                try {
+                    // Use EXPLICIT intent instead of getLaunchIntentForPackage
+                    val intent = Intent().apply {
+                        component = ComponentName(
+                            "com.example.book_stats_flutter",
+                            "com.example.book_stats_flutter.MainActivity"
+                        )
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    }
+
+                    context.startActivity(intent)
+
+                    // Show success feedback
+                    Toast.makeText(context,
+                        "✅ Opening Flutter Book Stats...",
+                    Toast.LENGTH_SHORT
+                    ).show()
+
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(context,
+                        "❌ Cannot find Flutter app\n" +
+                    "Package: com.example.book_stats_flutter",
+                    Toast.LENGTH_LONG
+                    ).show()
+                } catch (e: Exception) {
+                    Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF4CAF50)  // Green for success
+            )
+        ) {
+            Text("🚀Launch Flutter Book Stats")
         }
     }
 }
